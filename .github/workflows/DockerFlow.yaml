@@ -1,0 +1,22 @@
+name: Example Docker Flow
+description: This is an example actions using Docker from the book actions in action
+author: Michael
+inputs:
+    input_one:
+        description: 'Some info passed to the container'
+        required: false
+    input_two:
+        description: 'Some info passed to the container'
+        required: false
+
+runs:
+    using: 'docker'
+    image: 'docker://ghcr.io/wulfland/container-demo:latest'
+
+    args: 
+        - ${{ inputs.input_one }}
+        - ${{ inputs.input_two }}
+    
+    env:
+        VARIABLE1: ${{ inputs.input_one }}
+        VARIABLE2: ${{ inputs.input_one }}
