@@ -1,0 +1,22 @@
+name: Job Summary using Tolkit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job_1:
+    name: Write Summary from action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6.1.0
+        with:
+          script: |
+            await core.summary
+            .addHeading('Test Results')
+            .addTable([
+              [{data: 'File', header: true'}, {data: 'Result', header: true}],
+              ['foo.js', 'Pass ✅'],
+              ['bar.js', 'Fail ❌'],
+              ['test.js', 'Pass ✅'],
+            ])
+            .addLink('View staging deployment!', 'https://github.com')
