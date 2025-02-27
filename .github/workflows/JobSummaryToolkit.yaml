@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6.1.0
+        name: Test
         with:
           script: |
             await core.summary
             .addHeading('Test Results')
             .addTable([
-              [{data: 'File', header: true'}, {data: 'Result', header: true}],
+              [{data: 'File', header: true}, {data: 'Result', header: true}],
               ['foo.js', 'Pass ✅'],
               ['bar.js', 'Fail ❌'],
               ['test.js', 'Pass ✅'],
