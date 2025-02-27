@@ -20,3 +20,4 @@ jobs:
               ['test.js', 'Pass ✅'],
             ])
             .addLink('View staging deployment!', 'https://github.com')
+            .write()
