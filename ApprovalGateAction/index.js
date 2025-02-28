@@ -9,11 +9,11 @@ try {
   const mainBranch = core.getInput('main-branch', { required: true });
 
   if (environment == 'Prod' && action == 'Apply' && currentBranch != mainBranch){
-    core.setOutput("outcome", false);
+    core.setOutput("outcome", "False");
     return
   }
 
-  core.setOutput("outcome", true)
+  core.setOutput("outcome", "True")
   
 } catch (error) {
   core.setFailed(error.message);
