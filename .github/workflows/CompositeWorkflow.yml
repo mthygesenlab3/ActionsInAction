@@ -7,6 +7,7 @@ on:
                 type: string
                 description: name of who to greet
                 default: Mike
+                required: true
 
 jobs:
   hello_world_job:
@@ -17,7 +18,7 @@ jobs:
       - id: foo
         uses: ./CompositeAction
         with:
-          who-to-greet: 'Mona the Octocat'
+          who-to-greet: ${{ inputs.name }}
 
       - run: echo random-number "$RANDOM_NUMBER"
         shell: bash

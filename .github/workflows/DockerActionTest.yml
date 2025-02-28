@@ -6,6 +6,8 @@ on:
             name:
                 type: string
                 description: name of who to greet
+                required: true
+                default: Mike
 
 jobs:
     hello_world_job:
