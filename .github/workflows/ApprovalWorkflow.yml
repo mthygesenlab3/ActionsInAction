@@ -1,0 +1,51 @@
+name: JavaScript custom workflow
+
+on: 
+    workflow_dispatch:
+        inputs:
+            action:
+                type: choice
+                default: Plan
+                options:
+                  - Plan
+                  - Apply
+                description: 'Terraform Action to take'
+                required: true
+            
+            environment:
+                type: choice
+                default: Dev
+                options:
+                  - Dev
+                  - Prod
+                description: 'What environment to target for plan or apply'
+                required: true
+                
+
+jobs:
+  mock_terraform:
+    runs-on: ubuntu-latest
+    name: A job to mock and test a custom approval gate
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure npm
+        working-directory: ./ApprovalGateAction
+        run: |
+          npm install
+
+      - name: Hello world action step
+        uses: ./JavaScriptAction
+        id: approval-gate
+        with:
+          action: ${{ inputs.action }}
+          environment: ${{ inputs.environment }}
+          current-branch: ${{ github.ref_name }}
+          main-branch: ${{ github.event.repository.default_branch }}
+      
+          # Use the output from the `hello` step
+      - name: Get the outcome of the approval gate
+        run: echo "The time was ${{ steps.approval-gate.outcome }}"
