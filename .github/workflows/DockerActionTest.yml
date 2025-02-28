@@ -20,7 +20,7 @@ jobs:
               id: hello
               uses: ./
               with:
-                who-to-greet: ${{ inputs.name || '' }}
+                who-to-greet: ${{ inputs.name }}
             
             
             - name: get the output time
