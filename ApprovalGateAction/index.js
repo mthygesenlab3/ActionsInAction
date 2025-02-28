@@ -1,6 +1,9 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+
+core.setSecret('action');
+
 try {
   // `who-to-greet` input defined in action metadata file
   const action = core.getInput('action', { required: true });
