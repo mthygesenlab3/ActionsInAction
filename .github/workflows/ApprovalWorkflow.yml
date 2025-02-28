@@ -32,11 +32,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure npm
-        working-directory: ./ApprovalGateAction
-        run: |
-          npm install
-
       - name: Approval Gate Step
         uses: ./ApprovalGateAction
         id: approval
