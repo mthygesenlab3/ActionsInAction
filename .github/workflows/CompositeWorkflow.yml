@@ -16,11 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: foo
+        name: Run Composite Action
         uses: ./CompositeAction
         with:
           who-to-greet: ${{ inputs.name }}
 
       - run: echo random-number "$RANDOM_NUMBER"
+        name: Generate random number
         shell: bash
         env:
           RANDOM_NUMBER: ${{ steps.foo.outputs.random-number }}
