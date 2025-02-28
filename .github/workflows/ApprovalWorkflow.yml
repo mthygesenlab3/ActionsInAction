@@ -1,4 +1,4 @@
-name: JavaScript custom workflow
+name: TF Approval Workflow Test
 
 on: 
     workflow_dispatch:
