@@ -1,3 +1,5 @@
+name: Custom docker job run
+
 on:
     workflow_dispatch:
 
