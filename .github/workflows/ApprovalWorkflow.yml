@@ -39,7 +39,7 @@ jobs:
 
       - name: Approval Gate Step
         uses: ./ApprovalGateAction
-        id: approval-gate
+        id: approval
         with:
           action: ${{ inputs.action }}
           environment: ${{ inputs.environment }}
@@ -48,4 +48,4 @@ jobs:
       
           # Use the output from the `hello` step
       - name: Get the outcome of the approval gate
-        run: echo "The outcome was ${{ steps.approval-gate.outcome }}"
+        run: echo "The outcome was ${{ steps.approval.outputs.outcome }}"
