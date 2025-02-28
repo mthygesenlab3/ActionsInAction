@@ -7,7 +7,6 @@ try {
   const environment = core.getInput('environment', { required: true });
   const currentBranch = core.getInput('current-branch', { required: true });
   const mainBranch = core.getInput('main-branch', { required: true });
-  core.setSecret(mainBranch);
 
   if (environment == 'Prod' && action == 'Apply' && currentBranch != mainBranch){
     core.setOutput("outcome", "False");
