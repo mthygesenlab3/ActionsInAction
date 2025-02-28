@@ -6,8 +6,6 @@ on:
             name:
                 type: string
                 description: name of who to greet
-                default: Mike
-
 jobs:
     hello_world_job:
         runs-on: ubuntu-latest
