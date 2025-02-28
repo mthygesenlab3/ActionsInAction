@@ -10,6 +10,7 @@ try {
 
   if (environment == 'Prod' && action == 'Apply' && currentBranch != mainBranch){
     core.setOutput("outcome", "False");
+    core.setFailed(`Cannot run apply from a branch that is not master in Prod environment!`);
     return
   }
 
