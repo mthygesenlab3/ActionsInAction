@@ -2,6 +2,11 @@ name: Custom docker job run
 
 on:
     workflow_dispatch:
+        inputs:
+            name:
+                type: string
+                description: name of who to greet
+                default: Mike
 
 jobs:
     hello_world_job:
@@ -15,7 +20,7 @@ jobs:
               id: hello
               uses: ./
               with:
-                who-to-greet: 'Mike'
+                who-to-greet: ${{ inputs.name }}
             
             - name: get the output time
               run: echo "The time was ${{ steps.hello.outputs.time }}"
