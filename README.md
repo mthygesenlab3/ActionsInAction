@@ -1,23 +1,3 @@
-# Hello world docker action
+# Actions in Action
 
-This action prints "Hello world" or "Hello" + the name of a person to greet to the log
-
-## Inputs
-
-## `who-to-greet`
-
-**Required** The name of the person to greet. Default `"Hello World"`
-
-## Outputs
-
-## `time`
-
-The time we greeted you
-
-## Example usage
-
-```
-uses: actions/hello-world-docker-action@v2
-with:
-  who-to-greet: 'Mona the octocat'
-```
+This repo is a playground for me to mess about with Github actions by following along the book 'GitHub Actions in Action'
