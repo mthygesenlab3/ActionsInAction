@@ -1,7 +1,7 @@
 name: 'Approval Gate Checker Terraform Test'
 description: 'A simple approval gate to approve/deny a Terraform Apply from running or not'
 inputs:
-  tf-action:  # id of input
+  action:  # id of input
     description: 'Terraform action to take'
     required: true
     default: 'Plan'
