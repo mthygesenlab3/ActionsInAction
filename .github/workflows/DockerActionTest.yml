@@ -16,7 +16,6 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Hello world action step
-              if: ${{ inputs.name != '' }}
               id: hello
               uses: ./
               with:
