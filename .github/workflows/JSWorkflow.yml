@@ -1,3 +1,5 @@
+name: JavaScript custom workflow
+
 on: 
     workflow_dispatch:
         inputs:
