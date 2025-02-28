@@ -20,12 +20,8 @@ jobs:
               id: hello
               uses: ./
               with:
-                who-to-greet: ${{ inputs.name }}
+                who-to-greet: ${{ inputs.name != '' && inputs.name || null }}
             
-            - name: Hello world action step
-              if: ${{ inputs.name == '' }}
-              id: hello2
-              uses: ./
             
             - name: get the output time
               run: echo "The time was ${{ steps.hello.outputs.time }}"
