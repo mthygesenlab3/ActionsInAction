@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
+        uses: ./JavaScriptAction
         id: hello
         with:
           who-to-greet: ${{ inputs.name }}
