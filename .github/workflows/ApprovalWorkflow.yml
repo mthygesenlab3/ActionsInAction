@@ -44,3 +44,13 @@ jobs:
           # Use the output from the `hello` step
       - name: Get the outcome of the approval gate
         run: echo "The outcome was ${{ steps.approval.outputs.outcome }}"
+
+      - name: Action if Approved
+        run: echo "This is running because the check was approved"
+        if: ${{ steps.approval.outputs.outcome == True }}
+
+      - name: Action if NOT Approved
+        run: echo "This is running because the check was NOT approved"
+        if: ${{ steps.approval.outputs.outcome != True }}
+
+        
