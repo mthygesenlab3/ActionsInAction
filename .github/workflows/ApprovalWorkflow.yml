@@ -47,10 +47,10 @@ jobs:
 
       - name: Action if Approved
         run: echo "This is running because the check was approved"
-        if: ${{ steps.approval.outputs.outcome == True }}
+        if: ${{ steps.approval.outputs.outcome == 'True' }}
 
       - name: Action if NOT Approved
         run: echo "This is running because the check was NOT approved"
-        if: ${{ steps.approval.outputs.outcome != True }}
+        if: ${{ steps.approval.outputs.outcome != 'True' }}
 
         
