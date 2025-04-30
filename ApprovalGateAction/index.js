@@ -8,13 +8,13 @@ try {
   const currentBranch = core.getInput('current-branch', { required: true });
   const mainBranch = core.getInput('main-branch', { required: true });
 
-  if (environment == 'Prod' && action == 'Apply' && currentBranch != mainBranch){
-    core.setOutput("outcome", "False");
+  if (environment == 'Prod' && action == 'Apply' && currentBranch == mainBranch){
+    core.setOutput("outcome", "True");
     // core.setFailed(`Cannot run apply from a branch that is not master in Prod environment!`);
     return
   } 
 
-  core.setOutput("outcome", "True")
+  core.setOutput("outcome", "False")
   
 } catch (error) {
   core.setFailed(error.message);
